@@ -78,13 +78,18 @@ sub{
 .calculadora > .salida > .operando-anterior{
     font-size: 2.5rem;
     font-weight: lighter;
+    flex-wrap: wrap-reverse;
+    word-break: break-all;
 }
 
 .calculadora > .salida > .operando-actual{
     font-size: 3rem;
+    flex-wrap: wrap-reverse;
+    word-break: break-all;
 }
 
 .calculadora > .salida > .operando-actual-binario, .calculadora > .salida > .operando-anterior-binario{
     font-size: 2rem;
     flex-wrap: wrap-reverse;
+    word-break: break-all;
 }

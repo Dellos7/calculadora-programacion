@@ -24,7 +24,7 @@ class Calculadora{
         if( this.base === 16 ){
             return Number.parseInt(`0x${operando}`);
         } else if( this.base === 8 ){
-            return Number.parseInt( `0${operando}` );
+            return Number.parseInt( `0${operando}`, 8 );
         } else{
             return Number.parseInt( operando );
         }
@@ -103,6 +103,7 @@ class Calculadora{
                 case '*':
                     this.operandoActualDecimal = operandoAnteriorNum * operandoActualNum;
                     break;
+                case '/':
                 case '÷':
                     this.operandoActualDecimal = operandoAnteriorNum / operandoActualNum;
                     break;
@@ -139,7 +140,13 @@ class Calculadora{
 
     formatearBinario( binario ){
         const prox = this.proxMult8( binario.length );
-        return Array.from( binario.split("").reverse().concat( Array( prox-binario.length ).fill(0) ).reduce( (acum, act, idx) => {
+        let binarioArr = binario.split("");
+        let negativo = false;
+        if( binarioArr && binarioArr[0] === '-' ){
+            negativo = true;
+            binarioArr = binarioArr.slice(1);
+        }
+        return (negativo ? "-" : "") + Array.from( binarioArr.reverse().concat( Array( prox-binarioArr.length ).fill(0) ).reduce( (acum, act, idx) => {
             if( idx > 0 && idx%8 == 0 ){
                 return acum + " " + act;
             }
@@ -241,4 +248,32 @@ basesEls.forEach( (btn) => {
             });
         }
     });
+});
+
+const operadores = [ '+', '-', '*', '/' ];
+const hexaKeys = [ 'a', 'b', 'c', 'd', 'e', 'f' ];
+window.addEventListener( 'keyup', (e) => {
+    console.log(e);
+    if( e.key === 'Enter' ){
+        calculadora.realizarOperacion();
+        calculadora.mostrarSalida();
+    } else if( e.key === 'Backspace' && e.ctrlKey ){
+        calculadora.limpiar();
+        calculadora.mostrarSalida();
+    } 
+    else if( e.key === 'Backspace' ){
+        calculadora.borrar();
+        calculadora.mostrarSalida();
+    } else if( operadores.includes(e.key) ){
+        calculadora.operar( e.key );
+        calculadora.mostrarSalida();
+    } else if( !isNaN(e.key) ){
+        if( ( calculadora.base == 8 && e.key != '8' && e.key != '9' ) || calculadora.base != 8 ){
+            calculadora.anyadirOperando(e.key);
+            calculadora.mostrarSalida();
+        }
+    } else if( calculadora.base == 16 && hexaKeys.includes(e.key.toLowerCase()) ){
+        calculadora.anyadirOperando(e.key);
+        calculadora.mostrarSalida();
+    }
 });
