@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculadora de programador</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="estilo.css">
+        <script defer type="text/javascript" src="script.js"></script>
+    </head>
+    <body>
+        <div class="calculadora">
+            <div class="salida">
+                <div data-operando-anterior class="operando-anterior"></div>
+                <div data-operando-anterior-binario class="operando-anterior-binario"></div>
+                <div data-operando-actual class="operando-actual"></div>
+                <div data-operando-actual-binario class="operando-actual-binario"></div>
+            </div>
+            <button data-limpiar class="span-2">AC</button>
+            <button data-borrar>DEL</button>
+            <button data-operacion>AND</button>
+            <button data-operacion>OR</button>
+            <button data-operacion>NOT</button>
+            <button data-operacion>XOR</button>
+            <button data-operando data-operando-hexadecimal class="deshabilitado">A</button>
+            <button data-operando data-operando-hexadecimal class="deshabilitado">B</button>
+            <button data-operando>1</button>
+            <button data-operando>2</button>
+            <button data-operando>3</button>
+            <button data-operacion>>></button>
+            <button data-operacion><<</button>
+            <button data-operando data-operando-hexadecimal class="deshabilitado">C</button>
+            <button data-operando data-operando-hexadecimal class="deshabilitado">D</button>
+            <button data-operando>4</button>
+            <button data-operando>5</button>
+            <button data-operando>6</button>
+            <button data-operacion>÷</button>
+            <button data-operacion>-</button>
+            <button data-operando data-operando-hexadecimal class="deshabilitado">E</button>
+            <button data-operando data-operando-hexadecimal class="deshabilitado">F</button>
+            <button data-operando>7</button>
+            <button data-operando data-operando-decimal>8</button>
+            <button data-operando data-operando-decimal>9</button>
+            <button data-operacion>*</button>
+            <button data-operacion>+</button>
+            <button data-base="8" class="base">8<sub>b</sub></button>
+            <button data-base="10" class="base seleccionado">10<sub>b</sub></button>
+            <button data-base="16" class="base">16<sub>b</sub></button>
+            <button data-operando>0</button>
+            <button data-calcular class="span-3">=</button>
+        </div>
+    </body>
+</html>
