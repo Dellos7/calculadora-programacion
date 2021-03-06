@@ -19,8 +19,8 @@ body{
     justify-content: center;
     height: 100vh;
     align-content: center;
-    grid-template-columns: repeat(7, 10rem);
-    grid-template-rows: minmax(14rem, auto) repeat(5, 10rem);
+    grid-template-columns: repeat(7, minmax(5rem, 10rem));
+    grid-template-rows: minmax(14rem, auto) repeat(5, minmax(5rem, 10rem));
 }
 
 .salida{
@@ -39,7 +39,7 @@ body{
     cursor: pointer;
     background: rgba( 255, 255, 255, .75 );
     border: 1px solid white;
-    font-size: 2.5rem;
+    font-size: min(5vw, 3.5rem);
     outline: none;
 }
 
